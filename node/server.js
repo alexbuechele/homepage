@@ -1,13 +1,8 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const helmet = require('helmet');
+const app = express();
 
-app.get('/', function(req, res){
-	res.send('Hi, World!\n');
-	console.log('Hi, Console!\n');
-});
+app.use(helmet());
+app.use(express.static("./public"));
 
-var port = 9000;
-
-app.listen(port);
-
-console.log('Listening on port ', port);
+app.listen(3000, () => {console.log("Server Connected")|);
