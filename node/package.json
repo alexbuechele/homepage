@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/alexbuechele/homepage/issues"
   },
-  "homepage": "https://github.com/alexbuechele/homepage#readme"
+  "homepage": "https://github.com/alexbuechele/homepage#readme",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "express-promise-router": "^3.0.1",
+    "pg": "^7.4.1"
+  }
 }
