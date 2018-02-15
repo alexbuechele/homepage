@@ -1,6 +1,12 @@
-const users = require('./user');
+var Router = require('express-promise-router');
 
-module.exports = (app) => {
-    app.user('/users', users);
-};
+var db = require('../db');
 
+var router = new Router();
+
+module.exports = router;
+
+router.get('/', async (req, res) => {
+	db.post()
+
+});
