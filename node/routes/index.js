@@ -1,12 +1,28 @@
-var Router = require('express-promise-router');
+var express = require('express');
+var router = express.Router();
 
-var db = require('../db');
+var index_controller = require('../controllers/indexController');
 
-var router = new Router();
+//get request for the home page
+router.get('/', index_controller.index);
+
+// post request for contact form
+router.post('/', index_controller.contact_me);
 
 module.exports = router;
 
-router.get('/', async (req, res) => {
-	db.post()
 
+/*----TODO this version with express-promise-router
+
+var Router = require('express-promise-router');
+var router = new Router();
+
+var db = require('../db');
+
+router.get('/', async (req, res) => {
+	db.post();
 });
+
+module.exports = router;
+
+*/

@@ -10,8 +10,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var dummy = require('./routes/dummy');
 // add other routes later
-//var other = require('./routes/other');
 
 var app = express();
 
@@ -26,6 +26,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', index);
+app.use('/dummy', dummy);
 
 // error handling? 404?
 
