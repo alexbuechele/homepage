@@ -39,17 +39,19 @@ exports.contact_me = [
         
         if (!errors.isEmpty()){
             //handle errors by re-rendering form?
-            //for now let's just go home
+            //for now let's just go home, user doesn't realize message failed
             res.render('index');
             return;
         }
 
         else {
             //save the message to postgres
+            //where is .save coming from? and err?
             messageLog.save(function (err){
                 if (err) { 
                     return next(err); 
                 }
+                //add feedback indicating message was a success?
                 res.render('index');
             });
         }
