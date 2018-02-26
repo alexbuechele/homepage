@@ -25,33 +25,35 @@ exports.contact_me = [
     //sanitize fields with 'sanitizeBody,
     sanitizeBody('*').trim().escape(),
 
-    //process request
+    //---process request
     (req, res, next) => {
-        //const errors = validationResult(req);
+        //do i understand how this works?
         const errors = validationResult(req);
 
-        var messageLog = new MessageLog({
-            name: req.body.name,
-            email: req.body.email,
-            message: req.body.email,
-            ipaddress: req.headers["x-real-ip"]
-        });
+        //---we are using a model for this. necessary?
+        //---maybe to access these logs we would want them back as models
+        var messageLog = new MessageLog(req);
+
         
         if (!errors.isEmpty()){
-            //handle errors by re-rendering form?
-            //for now let's just go home, user doesn't realize message failed
+            //---handle errors by re-rendering form?
+            //---for now let's just go home, user doesn't realize message failed
             res.render('index');
             return;
         }
 
         else {
-            //save the message to postgres
-            //where is .save coming from? and err?
+            //---save the message to postgres
+            //---where is .save coming from? and err?
             messageLog.save(function (err){
                 if (err) { 
-                    return next(err); 
+                    res.render('error');
+                    //---pass err?
+
+                    //return next(err); 
+                    //--- more middleware after this? or is this the last stop
                 }
-                //add feedback indicating message was a success?
+                //---add feedback indicating message was a success?
                 res.render('index');
             });
         }
