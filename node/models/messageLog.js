@@ -20,7 +20,9 @@ class MessageLog {
         db.query("INSERT INTO messagelogs (name, email, message, ipaddress) "
                 + "VALUES ($1, $2, $3, $4);",
             [this.name, this.email, this.message, this.ipAddress], 
-            callback(err));
+            (err, result) => {
+                callback(err);
+            });
     }
 
     //callback in this one with err?
