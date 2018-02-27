@@ -2,7 +2,8 @@ require('dotenv').config();
 
 (function tableInitiations(){
     messageRef = require('./models/messageLog');
-    messageRef.tableInit();
+    myMessageRef = new messageRef;
+    myMessageRef.tableInit();
 })();
 
 var app = require('./app');
