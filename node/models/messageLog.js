@@ -1,12 +1,20 @@
 db = require('../db');
 
 class MessageLog {
-    constructor (req) {
-        name = req.body.name;
-        email = req.body.email;
-        message = req.body.email;
-        ipAddress = req.headers["x-real-ip"];
+    constructor () {
+        this.name = '';
+        this.email = '';
+        this.message = '';
+        this.ipAddress = '';
     }
+
+    populate (req) {
+        this.name = req.body.name;
+        this.email = req.body.email;
+        this.message = req.body.email;
+        this.ipAddress = req.headers["x-real-ip"];
+    }
+
 
     save(callback) {
         db.query("INSERT INTO messagelogs (name, email, message, ipaddress) "
@@ -17,12 +25,12 @@ class MessageLog {
 
     //callback in this one with err?
     tableInit() {
-        db.query("CREATE TABLE messagelogs ("
+        db.query("CREATE TABLE IF NOT EXISTS messagelogs ("
             + "id SERIAL PRIMARY KEY "
-            + "name "
-            + "email "
-            + "message "
-            + "ipaddress "
+            + "name varchar(45) "
+            + "email varchar(45) "
+            + "message text"
+            + "ipaddress varchar(45)"
             + ");",
             (err) => {
                 if (err) {

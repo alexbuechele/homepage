@@ -18,8 +18,8 @@ exports.contact_me = [
     //array of functions to call
 
     //validate fields with 'body',
-    body('name', 'Name must not be empty.').isLength({ min: 1}).trim(),
-    body('email', 'Email must not be empty.').isLength({ min: 1}).trim(),
+    body('name', 'Name must be 1-45 characters').isLength({ min: 1, max: 45}).trim(),
+    body('email', 'Email must be 1-45 characters').isLength({ min: 1, max: 45}).trim(),
     body('message', 'You forgot your message!').isLength({ min: 1}).trim(),
     
     //sanitize fields with 'sanitizeBody,
@@ -32,7 +32,8 @@ exports.contact_me = [
 
         //---we are using a model for this. necessary?
         //---maybe to access these logs we would want them back as models
-        var messageLog = new MessageLog(req);
+        var messageLog = new MessageLog();
+        messageLog.populate(req);
 
         
         if (!errors.isEmpty()){
