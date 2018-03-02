@@ -7,7 +7,9 @@ const pool = new Pool();
 //put query logging, client leak diagnostics here
 module.exports = {
 	query: (text, params, callback) => {
-		return pool.query(text, params, callback);
+		return pool.query(text, params, (err, result) => { 
+			callback(err, result);
+		});
 	}
 };
 

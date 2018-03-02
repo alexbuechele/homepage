@@ -21,7 +21,7 @@ class MessageLog {
                 + "VALUES ($1, $2, $3, $4);",
             [this.name, this.email, this.message, this.ipAddress], 
             (err, result) => {
-                callback(err);
+                callback(err, result);
             });
     }
 
@@ -34,7 +34,8 @@ class MessageLog {
             + "message text"
             + "ipaddress varchar(45)"
             + ");",
-            (err) => {
+            [],
+            (err, result) => {
                 if (err) {
                     console.log("table initialization error");
                 }              

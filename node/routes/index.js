@@ -14,8 +14,8 @@ router.get('/', index_controller.index);
 //does this structure make sense with routes and controllers vs just routes
 
 //post request for contact form
-router.post('/', index_controller.contact_me);
-
+//router.post('/', index_controller.contact_me);
+router.post('/', index_controller.index); //fix this when db is up and running
 module.exports = router;
 
 /*---had it this way previously
