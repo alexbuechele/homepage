@@ -1,20 +1,12 @@
 db = require('../db');
 
 class MessageLog {
-    constructor () {
-        this.name = '';
-        this.email = '';
-        this.message = '';
-        this.ipAddress = '';
+    constructor (name, email, message, ipAddress) {
+        this.name = name;
+        this.email = email;
+        this.message = message;
+        this.ipAddress = ipAddress;
     }
-
-    populate (req) {
-        this.name = req.body.name;
-        this.email = req.body.email;
-        this.message = req.body.email;
-        this.ipAddress = req.headers["x-real-ip"];
-    }
-
 
     save(callback) {
         db.query("INSERT INTO messagelogs (name, email, message, ipaddress) "
@@ -26,12 +18,13 @@ class MessageLog {
     }
 
     //callback in this one with err?
+    /*
     tableInit() {
         db.query("CREATE TABLE IF NOT EXISTS messagelogs ("
-            + "id SERIAL PRIMARY KEY "
-            + "name varchar(45) "
-            + "email varchar(45) "
-            + "message text"
+            + "id SERIAL PRIMARY KEY, "
+            + "name varchar(45), "
+            + "email varchar(45), "
+            + "message text, "
             + "ipaddress varchar(45)"
             + ");",
             [],
@@ -41,8 +34,7 @@ class MessageLog {
                 }              
             });
     }
+    */
 };
 
 module.exports = MessageLog;
-
-//pseudocode until i have net access :s

@@ -32,9 +32,11 @@ exports.contact_me = [
 
         //---we are using a model for this. necessary?
         //---maybe to access these logs we would want them back as models
-        var messageLog = new MessageLog();
-        messageLog.populate(req);
-
+        
+        var messageLog = new MessageLog(req.body.name,
+                                        req.body.email,
+                                        req.body.message,
+                                        req.headers["x-real-ip"]);
         
         if (!errors.isEmpty()){
             //---handle errors by re-rendering form?
