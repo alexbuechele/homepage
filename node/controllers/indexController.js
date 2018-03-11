@@ -5,7 +5,7 @@ var MessageLog = require('../models/messageLog');
 const { body, validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 
-exports.index = function(req, res){
+exports.index = function(req, res, next){
     //call geo-logger here?
 
     // let's just do static for now
@@ -15,6 +15,7 @@ exports.index = function(req, res){
         // catch errors?
     });
     */
+   next();
 
 };
 
@@ -30,10 +31,15 @@ exports.contact_me = [
     
     //sanitize fields with 'sanitizeBody,
     sanitizeBody('*').trim().escape(),
+    */
+
 
     //---process request
     (req, res, next) => {
         //do i understand how this works?
+
+        next();
+        /*
         const errors = validationResult(req);
 
         //---we are using a model for this. necessary?
@@ -66,7 +72,6 @@ exports.contact_me = [
                 res.render('index');
             });
         }
+        */
     }
-    */
-
 ];
