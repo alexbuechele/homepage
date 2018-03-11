@@ -8,15 +8,21 @@ const { sanitizeBody } = require('express-validator/filter');
 exports.index = function(req, res){
     //call geo-logger here?
 
+    // let's just do static for now
+    /*
     res.render('index', {
         // data we send to render
         // catch errors?
     });
+    */
+
 };
 
 exports.contact_me = [
     //array of functions to call
 
+    //again, let's hide all this for now
+    /*
     //validate fields with 'body',
     body('name', 'Name must be 1-45 characters').isLength({ min: 1, max: 45}).trim(),
     body('email', 'Email must be 1-45 characters').isLength({ min: 1, max: 45}).trim(),
@@ -61,4 +67,6 @@ exports.contact_me = [
             });
         }
     }
+    */
+
 ];

@@ -21,11 +21,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// remove or move this lower?
+
+app.use('/', require('./routes'));
+
+//mind the order
 app.use(express.static(path.join(__dirname, 'public')));
 
-//link to routes ./routes/index.js
-app.use('/', require('./routes'));
+
 
 // error handling? 404?
 
