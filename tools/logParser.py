@@ -79,8 +79,15 @@ def add_ip_api_data():
             urlString = ("http://ip-api.com/csv/" + address +"?fields=" +
             "country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,mobile,proxy,status,message")
 
+            ## message only returned with fail
+
             response = requests.get(urlString)
             addressInfo = response.content
+
+            ## REWORK THIS TO USE JSON FOR RETURNED VALUES ??
+            ## RELYING ON ORDER WITH CSV DOESN'T SEEM SAFE ??
+            ## HANDLE COMMA (DELIMITER CHARACTER) IN FIELDS
+            ## HANDLE QUOTES IN FIELDS
 
             lineInfoPairs[address] = addressInfo
             sleep(0.5)
