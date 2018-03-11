@@ -25,7 +25,8 @@ class MessageLog {
             + "name varchar(45), "
             + "email varchar(45), "
             + "message text, "
-            + "ipaddress varchar(45)"
+            + "ipaddress varchar(45), "
+            + "datetime timestamp default date_trunc('second', now())"
             + ");",
             [],
             (err, result) => {
@@ -34,6 +35,9 @@ class MessageLog {
                 }              
             });
     }
+
+    
+
     */
 };
 
