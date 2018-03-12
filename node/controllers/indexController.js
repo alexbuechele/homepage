@@ -33,11 +33,11 @@ exports.contact_me = [
     sanitizeBody('*').trim().escape(),
     */
 
-
     //---process request
     (req, res, next) => {
+        console.log("test");
         //do i understand how this works?
-
+        req.method = "GET";
         next();
         /*
         const errors = validationResult(req);
