@@ -1,5 +1,6 @@
 //require models
 var MessageLog = require('../models/messageLog');
+var VisitorLog = require('../models/visitorLog');
 
 //validation?
 const { body, validationResult } = require('express-validator/check');
@@ -7,6 +8,10 @@ const { sanitizeBody } = require('express-validator/filter');
 
 exports.index = function(req, res, next){
     //call geo-logger here?
+    var visitorLog = new VisitorLog(req.headers["x-real-ip"]);
+
+
+    visitorLog.save();
 
     // let's just do static for now
     /*
