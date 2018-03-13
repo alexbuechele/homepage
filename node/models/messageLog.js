@@ -8,37 +8,18 @@ class MessageLog {
         this.ipAddress = ipAddress;
     }
 
-    save(callback) {
-        db.query("INSERT INTO messagelogs (name, email, message, ipaddress) "
+    save() {
+        db.query("INSERT INTO message_logs (name, email, message, ipaddress) "
                 + "VALUES ($1, $2, $3, $4);",
-            [this.name, this.email, this.message, this.ipAddress], 
+                [this.name, this.email, this.message, this.ipAddress],
+            
+            //    [this.name, this.email, this.message, this.ipAddress], 
             (err, result) => {
-                callback(err, result);
+                if (err){
+                    console.log(err);
+                }
             });
     }
-
-    //callback in this one with err?
-    /*
-    tableInit() {
-        db.query("CREATE TABLE IF NOT EXISTS messagelogs ("
-            + "id SERIAL PRIMARY KEY, "
-            + "name varchar(45), "
-            + "email varchar(45), "
-            + "message text, "
-            + "ipaddress varchar(45), "
-            + "datetime timestamp default date_trunc('second', now())"
-            + ");",
-            [],
-            (err, result) => {
-                if (err) {
-                    console.log("table initialization error");
-                }              
-            });
-    }
-
-    
-
-    */
 };
 
 module.exports = MessageLog;

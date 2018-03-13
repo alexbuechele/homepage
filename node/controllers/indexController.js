@@ -23,25 +23,21 @@ exports.contact_me = [
     //array of functions to call
 
     //again, let's hide all this for now
-    /*
+    
     //validate fields with 'body',
     body('name', 'Name must be 1-45 characters').isLength({ min: 1, max: 45}).trim(),
     body('email', 'Email must be 1-45 characters').isLength({ min: 1, max: 45}).trim(),
     body('message', 'You forgot your message!').isLength({ min: 1}).trim(),
-    
+
     //sanitize fields with 'sanitizeBody,
     sanitizeBody('*').trim().escape(),
-    */
+    
 
     //---process request
     (req, res, next) => {
-        console.log("test");
-        //do i understand how this works?
-        req.method = "GET";
-        next();
-        /*
-        const errors = validationResult(req);
 
+        const errors = validationResult(req);
+        
         //---we are using a model for this. necessary?
         //---maybe to access these logs we would want them back as models
         
@@ -50,7 +46,9 @@ exports.contact_me = [
                                         req.body.message,
                                         req.headers["x-real-ip"]);
         
-        if (!errors.isEmpty()){
+        // FIX THIS
+        //if (!errors.isEmpty()){
+        if (1 == 2){
             //---handle errors by re-rendering form?
             //---for now let's just go home, user doesn't realize message failed
             res.render('index');
@@ -59,19 +57,10 @@ exports.contact_me = [
 
         else {
             //---save the message to postgres
-            //---where is .save coming from? and err?
-            messageLog.save(function (err){
-                if (err) { 
-                    res.render('error');
-                    //---pass err?
-
-                    //return next(err); 
-                    //--- more middleware after this? or is this the last stop
-                }
-                //---add feedback indicating message was a success?
-                res.render('index');
-            });
+            messageLog.save();
         }
-        */
+
+        res.end("yes");
+        
     }
 ];
