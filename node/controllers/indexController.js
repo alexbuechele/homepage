@@ -65,7 +65,7 @@ exports.contact_me = [
             messageLog.save();
         }
 
-        res.end("yes");
+        res.sendFile(__dirname + "../public/index.html");
         
     }
 ];
