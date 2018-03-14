@@ -65,7 +65,7 @@ exports.contact_me = [
             messageLog.save();
         }
 
-        res.render(index);
+        res.redirect("/");
         
     }
 ];
