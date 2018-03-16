@@ -9,8 +9,7 @@ const { sanitizeBody } = require('express-validator/filter');
 exports.index = function(req, res, next){
     //call geo-logger here?
     var visitorLog = new VisitorLog(req.headers["x-real-ip"]);
-
-
+    visitorLog.ip_api_helper();
     visitorLog.save();
 
     // let's just do static for now
