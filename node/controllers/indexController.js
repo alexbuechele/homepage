@@ -9,8 +9,23 @@ const { sanitizeBody } = require('express-validator/filter');
 exports.index = function(req, res, next){
     //call geo-logger here?
     var visitorLog = new VisitorLog(req.headers["x-real-ip"]);
-    visitorLog.ip_api_helper();
-    visitorLog.save();
+    
+
+
+    // shouldn't this promise be in visitorLog.js?
+    var visitor_log_ip_api_promise = new Promise((resolve, reject) => {
+        visitorLog.ip_api_helper();
+        console.log("just ran promise ip_api_helper: ", visitorLog);
+        resolve(null);
+    });
+
+    visitor_log_ip_api_promise
+        .then((from_resolve)=> {
+            console.log("saving", visitorLog);
+            visitorLog.save();
+        });
+    
+
 
     // let's just do static for now
     /*
