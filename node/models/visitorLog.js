@@ -32,7 +32,6 @@ var VisitorLog = function (ipAddress) {
             if(!log_object.ipAddress){
                 log_object.ipAddress = body_json["query"];
             }
-            console.log("log_object: ", log_object);
 
             db.query("INSERT INTO visitor_logs (ipaddress, ip_api_status, " +
                 "country, country_code, region, region_name, city, zipcode, " +
