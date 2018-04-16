@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 
-
 /*
 (function tableInitiations(){
     messageRef = require('./models/messageLog');
