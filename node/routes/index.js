@@ -6,7 +6,9 @@ var index_controller = require('../controllers/indexController');
 
 //go to another route file same directory for dummy
 router.use('/dummy', require('./dummy.js'));
+router.use('/admin', require('./admin.js'));
 //with a more complicated app, could have subdirectory with own index.js
+
 
 //get request for home page
 router.get('/', index_controller.index);
@@ -17,19 +19,6 @@ router.get('/', index_controller.index);
 router.post('/', index_controller.contact_me); //fix this when db is up and running
 module.exports = router;
 
-/*---had it this way previously
-var express = require('express');
-var router = express.Router();
-var index_controller = require('../controllers/indexController');
-
-//get request for the home page
-router.get('/', index_controller.index);
-
-// post request for contact form
-router.post('/', index_controller.contact_me);
-
-module.exports = router;
-*/
 
 
 /*----TODO this version with express-promise-router
