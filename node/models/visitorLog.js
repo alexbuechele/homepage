@@ -2,6 +2,7 @@ db = require('../db');
 var rpn = require('request-promise-native');
 
 
+
 var VisitorLog = function (ipAddress) {
     var log_object = {};
     log_object.ipAddress = ipAddress;

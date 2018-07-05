@@ -17,6 +17,7 @@ exports.index = function(req, res, next){
         // catch errors?
     });
     */
+   res.render('index');
    next();
 
 };

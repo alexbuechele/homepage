@@ -1,1 +1,117 @@
-extends layout.pug
+//
+  Dimension by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title Alex Buechele
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='assets/css/main.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='assets/css/ie9.css')
+    noscript
+      link(rel='stylesheet', href='assets/css/noscript.css')
+  body
+    // Wrapper
+    #wrapper
+      // Header
+      header#header
+        .logo
+          span.icon.fa-diamond
+        .content
+          .inner
+            h1 Alex Buechele
+            p Software Developer for hire
+        nav
+          ul
+            li
+              a(href='#intro') Intro
+            li
+              a(href='#resume') Resume
+            li
+              a(href='#projects') Projects
+            li
+              a(href='#contact') Contact
+            // <li><a href="#elements">Elements</a></li>
+      // Main
+      #main
+        // Intro
+        article#intro
+          h2.major Intro
+          span.image.main
+            img(src='images/pic01.jpg', alt='')
+          p
+            | I am a self-taught software developer looking for my first full-time position. 
+            | I plan to upload some of my personal projects here so this site can function as a sort of portfolio.
+            br
+            br
+            | 								While I have tinkered with code on a hobby level for many years, it wasn't until more recently that 
+            | 								I realized software development was what I wanted to do for the rest of my life. 
+            | 								At this point I am most familiar with C, python and javascript, but I am comfortable 
+            | 								working with other languages and learning new frameworks. 
+            br
+            br
+            | 								In a previous life, I studied organic chemistry.
+        // Resume
+        article#resume
+          h2.major Resume
+          span.image.main
+            img(src='images/pic02.jpg', alt='')
+          p
+            a(href='resume.pdf') Click here
+        // Projects
+        article#projects
+          h2.major Code I've written
+          span.image.main
+            img(src='images/pic03.jpg', alt='')
+          p
+            a(href='https://github.com/alexbuechele/homepage') Personal Site
+          p
+            | This site is hosted on an Amazon EC2 instance. It uses NGINX for reverse proxy,
+            | Node and Express on the backend, PostgreSQL for data storage and a landing page
+            | template from HTML5UP.
+          p
+            a(href='https://github.com/alexbuechele/leetcode') Leetcode Solutions
+          p Problems I've solved on leetcode or other coding challenge sites.
+        // Contact
+        article#contact
+          h2.major Contact
+          form(method='post', action='#')
+            .field.half.first
+              label(for='name') Name
+              input#name(type='text', name='name')
+            .field.half
+              label(for='email') Email
+              input#email(type='text', name='email')
+            .field
+              label(for='message') Message
+              textarea#message(name='message', rows='4')
+            ul.actions
+              li
+                input.special(type='submit', value='Send Message')
+              li
+                input(type='reset', value='Reset')
+          ul.icons
+            li
+              a.icon.fa-twitter(href='https://twitter.com/alexbuechele')
+                span.label Twitter
+            li
+              a.icon.fa-facebook(href='https://www.facebook.com/alex.buechele.1')
+                span.label Facebook
+            li
+              a.icon.fa-github(href='https://github.com/alexbuechele')
+                span.label GitHub
+      // Footer
+      footer#footer
+        p.copyright
+          | © Alex Buechele. Design: 
+          a(href='https://html5up.net') HTML5 UP
+          | .
+    // BG
+    #bg
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/skel.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')
