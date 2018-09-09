@@ -1,6 +1,7 @@
 //require models
 var MessageLog = require('../models/messageLog');
 var visitorLog = require('../models/visitorLog');
+var latestGithub = require('/models/latest_github');
 
 //validation?
 const { body, validationResult } = require('express-validator/check');
@@ -17,7 +18,11 @@ exports.index = function(req, res, next){
         // catch errors?
     });
     */
-   res.render('index');
+   let latest_github_data = latestGithub();
+   let latest_g = "https://github.com/" + latest_github_data.repo.name + "/commits/" + latest_github_data.payload.head;
+   let latest_g_d = latest_github_data.created_at;
+
+   res.render('index', { latest_github: latest_g, latest_github_date: latest_g_d });
    next();
 
 };
