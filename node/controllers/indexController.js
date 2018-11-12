@@ -18,7 +18,13 @@ exports.index = function(req, res, next){
         // catch errors?
     });
     */
-   let latest_github_data = latestGithub();
+   var latest_github_data = {url: 'https://github.com/alexbuechele',
+                            created_at: '234'};
+   latestGithub().then(latest_github_response => {
+       console.log("WHERE");
+       console.log(latest_github_response);
+   });
+   console.log(latest_github_data);
    let latest_g = latest_github_data.url;
    let latest_g_d = latest_github_data.created_at;
 

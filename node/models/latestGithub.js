@@ -18,7 +18,7 @@ var LatestGithub = function () {
     
 
                       
-    rpn(options)
+    return rpn(options)
         .then((body) => {
             let body_json = JSON.parse(body);
             latest_github_response.url = "https://github.com/" + body_json[0].repo.name + "/commits/" + body_json[0].payload.head;
@@ -29,7 +29,8 @@ var LatestGithub = function () {
             console.log("Error finding last github commit: ", err);
         });
 
-    return latest_github_response;
+    //console.log(latest_github_response);
+    //return latest_github_response;
 
 }
 
