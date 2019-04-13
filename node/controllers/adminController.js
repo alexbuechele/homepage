@@ -10,10 +10,12 @@ message_logs_query = (cb) => {
         });
 };
 
-exports.admin = function (req, res, next) {
+exports.admin = function (req, res) {
     
     function format_logs(message_rows) {
-        res.send(message_rows);
+
+        res.render('admin', { messagerows: message_rows });
+        
         //res.render('admin');
         //res.render('admin', {recentmessages: recentMessages});
     }
@@ -27,5 +29,4 @@ exports.admin = function (req, res, next) {
         message_logs_query(format_logs);
 
     }
-    next();
 }

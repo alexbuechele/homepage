@@ -1,2 +1,7 @@
-extends layout.pug
-
+block content
+  h1. 
+    Message List
+  ul
+    each row in messagerows
+      li
+        p= row.name + "\t" + row.email + "\t" + row.message
